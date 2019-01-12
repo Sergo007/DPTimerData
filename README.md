@@ -32,10 +32,13 @@
 ```html
 <script src="DPTimerData.js"></script>
 <script>
-var timer = new DPTimerData({
-  htmLayoutIds: ['myTimer1','myTimer2'], // любое количество версток
-  displays: ['block','block'], // показываем верстки таймера сss свойством 'display: block,inline-block,flex и тд'
-  timeZone: 3, // для времени по которому вам удобно заводить (GMT+3) 'если ваш (GMT-3) то timeZone: -3'
+var timer = new DPTimerData({ 
+  htmLayoutIds: ['myTimer1','myTimer2'], // масив id контейнеров верстки таймера
+  // показываем верстки таймера сss свойством 'display: block,inline-block,flex и тд'
+  displays: ['block','block'], // показываем верстки таймера
+  // timeZone 'если ваш (GMT-3) то timeZone: -3'
+  timeZone: 3, // для времени по которому вам удобно заводить
+  
   timers: [
     {
       stopDate: { // Дата когда заканчивается таймер. (счет с текущего дня)
