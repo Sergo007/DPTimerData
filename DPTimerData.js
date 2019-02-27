@@ -122,7 +122,7 @@ function DPTimerData(timerSettings) {
       var amount = 0;
       var dateFutureAmount = new Date(
         dateFuture.year,
-        --dateFuture.month,
+        dateFuture.month - 1,
         dateFuture.day,
         dateFuture.hour,
         dateFuture.minute,
