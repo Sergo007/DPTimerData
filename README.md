@@ -27,15 +27,33 @@
 <div style="display: none;" id="myTimer2">
   <div>[days] : [hours] : [mins] : [secs]</div>
 </div>
-
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
 ```
 ```html
-<script src="DPTimerData.js"></script>
+<script src="DPTimerDate.js"></script>
 <script>
-var timer = new DPTimerData({ 
-  htmLayoutIds: ['myTimer1','myTimer2'], // масив id контейнеров верстки таймера
-  // показываем верстки таймера сss свойством 'display: block,inline-block,flex и тд'
-  displays: ['block','block'], // показываем верстки таймера
+var timer = new DPTimerDate({ 
+  htmlLayouts: [ // масив контейнеров версток таймера на странице которые определены в html
+    {
+      selector: "#myTimer1",
+      display: "block" // показываем верстки таймера сss свойством 'display: block,inline-block,flex и тд'
+    },
+    {
+      selector: "#myTimer2",
+      display: "block"
+    },
+    {
+      selector: ".timer",
+      display: "block" // применится ко всем контейнерам найденым по селектору
+    }
+  ],
   // timeZone 'если ваш (GMT-3) то timeZone: -3'
   timeZone: -3, // для времени по которому вам удобно заводить таймер
   //timers[] - завести таймер на определенное время когда он отработает начнет
@@ -71,10 +89,10 @@ timer.start();
 
 ```
 ## Важно!
-DPTimerData представляет собой один обьект который будет 
+DPTimerDate представляет собой один обьект который будет 
 показывать одинаковое время во всех верстках с id прописаных в htmLayoutIds
 согласно логике с конфигурированой в timers.\
-На одной странице может быть несколько обьектов DPTimerData.
+На одной странице может быть несколько обьектов DPTimerDate.
 
 ## Построение верстки таймера
 [days2][days1][days0] : [hours1][hours0] : [mins1][mins0] : [secs1][secs0]

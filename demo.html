@@ -2,25 +2,65 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <title>демо таймена по дате v2.0.1</title>
+  <title>демо таймена по дате v2.1.1</title>
 </head>
 <body>
 
 <div style="display: none;" id="myTimer1">
+  id myTimer1
   <div>
     <strong>[days2]</strong>[days1][days0] :
     <strong>[hours1]</strong>[hours0] : <strong>[mins1]</strong>[mins0] :
     <strong>[secs1]</strong>[secs0]
   </div>
 </div>
+
 <div style="display: none;" id="myTimer2">
+  id myTimer2
   <div>[days] : [hours] : [mins] : [secs]</div>
 </div>
-<script src="DPTimerData.js"></script>
+
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
+
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
+
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
+
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
+
+<div style="display: none;" class="timer">
+  class timer
+  <div>[days] : [hours] : [mins] : [secs]</div>
+</div>
+<script src="DPTimerDate.js"></script>
 <script>
-  var timer = new DPTimerData({
-    htmLayoutIds: ["myTimer1", "myTimer2"],
-    displays: ["block", "block"],
+  var timer = new DPTimerDate({
+    htmlLayouts: [
+      {
+        selector: "#myTimer1",
+        display: "block"
+      },
+      {
+        selector: "#myTimer2",
+        display: "block"
+      },
+      {
+        selector: ".timer",
+        display: "block"
+      }
+    ],
     timeZone: 3,
     timers: [
       {

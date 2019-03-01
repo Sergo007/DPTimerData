@@ -24,33 +24,83 @@
     </p>
 
     <div style="display: none;" id="myTimer1">
+      id myTimer1
       <div>
         <strong>[days2]</strong>[days1][days0] :
         <strong>[hours1]</strong>[hours0] : <strong>[mins1]</strong>[mins0] :
         <strong>[secs1]</strong>[secs0]
       </div>
     </div>
+
     <div style="display: none;" id="myTimer2">
+      id myTimer2
+      <div>[days] : [hours] : [mins] : [secs]</div>
+    </div>
+
+    <div style="display: none;" class="timer">
+      class timer
+      <div>[days] : [hours] : [mins] : [secs]</div>
+    </div>
+
+    <div style="display: none;" class="timer">
+      class timer
+      <div>[days] : [hours] : [mins] : [secs]</div>
+    </div>
+
+    <div style="display: none;" class="timer">
+      class timer
+      <div>[days] : [hours] : [mins] : [secs]</div>
+    </div>
+
+    <div style="display: none;" class="timer">
+      class timer
+      <div>[days] : [hours] : [mins] : [secs]</div>
+    </div>
+
+    <div style="display: none;" class="timer">
+      class timer
       <div>[days] : [hours] : [mins] : [secs]</div>
     </div>
     <h3>Быстрый старт!!</h3>
     <xmp>
-  <div style="display: none;" id="timerLayout1">
+  <div style="display: none;" id="myTimer1">
     <div>[days2][days1][days0] : [hours1][hours0] : [mins1][mins0] : [secs1][secs0]</div>
   </div>
 
-  <div style="display: none;" id="timerLayout2">
+  <div style="display: none;" id="myTimer2">
     <div> [days] : [hours] : [mins] : [secs]</div>
+  </div>
+
+  <div style="display: none;" class="timer">
+    class timer
+    <div>[days] : [hours] : [mins] : [secs]</div>
+  </div>
+
+  <div style="display: none;" class="timer">
+    class timer
+    <div>[days] : [hours] : [mins] : [secs]</div>
   </div>
 </xmp>
     <xmp>
-  <script src="DPTimerData.js"></script>
+  <script src="DPTimerDate.js"></script>
 </xmp>
     <xmp>
   <script>
-    var timer = new DPTimerData({
-      htmLayoutIds: ['timerLayout1','timerLayout2','TIMER_ID3'],
-      displays: ['inline-block','inline-block','inline-block'],
+    var timer = new DPTimerDate({
+      htmlLayouts: [ // масив контейнеров версток таймера на странице которые определены в html
+        {
+          selector: "#myTimer1",
+          display: "block" // показываем верстки таймера сss свойством 'display: block,inline-block,flex и тд'
+        },
+        {
+          selector: "#myTimer2",
+          display: "block"
+        },
+        {
+          selector: ".timer",
+          display: "block" // применится ко всем контейнерам найденым по селектору
+        }
+      ],
       timeZone: 3, // для времени по которому вам удобно заводить
       timers: [
         {
@@ -86,7 +136,7 @@
       работать следующий таймер в масиве
     </p>
     <p>
-      htmLayoutIds: [] - масив id версток для таймера которые определены в html
+      htmlLayouts: [] - масив контейнеров версток таймера на странице которые определены в html
     </p>
     <p>
       передав id каждой верстки в htmLayoutIds и они буду работать одновременно
@@ -139,11 +189,23 @@
     <p></p>
     <p></p>
     <p></p>
-    <script src="DPTimerData.js"></script>
+    <script src="DPTimerDate.js"></script>
     <script>
-      var timer = new DPTimerData({
-        htmLayoutIds: ["myTimer1", "myTimer2"],
-        displays: ["block", "block"],
+      var timer = new DPTimerDate({
+        htmlLayouts: [
+          {
+            selector: "#myTimer1",
+            display: "block"
+          },
+          {
+            selector: "#myTimer2",
+            display: "block"
+          },
+          {
+            selector: ".timer",
+            display: "block"
+          }
+        ],
         timeZone: 3,
         timers: [
           {
